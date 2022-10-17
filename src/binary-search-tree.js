@@ -97,11 +97,31 @@ class BinarySearchTree {
       else
         return search_data(node.left, data);
     }
+   
   }
 
   find( data )
   {
+    if( this.root === null ) return null;
     
+    let current = this.root;
+
+    while( current != null )
+    {
+      if( data > current.data )
+      {
+        current=current.right;
+        continue;
+      }
+      else if( data < current.data )
+      {
+        current=current.left;
+        continue
+      }
+      else return current;
+    }
+
+    return null;
   }
 
   remove( data )
